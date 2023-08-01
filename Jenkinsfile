@@ -7,7 +7,7 @@ pipeline {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                     sh 'terraform init'
                     sh 'ls -l'
-                    sh 'terraform plan --region=us-east-1'
+                    sh 'terraform plan -region=us-east-1'
                 }
                 
             }
