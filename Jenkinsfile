@@ -16,6 +16,11 @@ pipeline {
                     sh 'terraform plan'
                 }
             }
+        }
+        post { 
+            always { 
+                cleanWs()
+            }
         }    
     }
 }
