@@ -5,7 +5,8 @@ pipeline {
         stage('Terraform Initialization') {
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh 'terraform init && terraform plan'
+                    sh 'terraform init'
+                    sh 'terraform plan'
                 }
                 
             }
