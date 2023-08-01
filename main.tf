@@ -1,10 +1,3 @@
-required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-  
 resource "aws_db_instance" "kthamel-postgres" {
   identifier          = "kthamel-postgres"
   db_name             = "POSTGRES"
