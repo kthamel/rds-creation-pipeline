@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent {label "slave-1" && "slave-2"}
 
     stages {
         stage('Terraform Initialization') {
