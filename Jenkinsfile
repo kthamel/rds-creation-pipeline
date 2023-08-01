@@ -1,8 +1,8 @@
 pipeline {
     agent {label 'slave-2'}
+    withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]){
 
     stages {
-        withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]){
         stage('Terraform Initialization') {
             steps {
                 sh 'terraform init'
