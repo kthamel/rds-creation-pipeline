@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'slave-1'}
+    agent {label 'slave-2'}
 
     stages {
         stage('Terraform Initialization') {
@@ -18,11 +18,6 @@ pipeline {
         //             sh 'terraform plan'
         //         }
         //     }
-        // }
-        post {
-            always {
-                deleteDir() /* clean up our workspace */
-                }
-            }   
+        // }  
     }
 }
