@@ -12,7 +12,7 @@ pipeline {
             }
         
         stage('Terraform Plan') {
-            agent { label 'slave-2' }
+            agent { label 'slave-1' }
                 steps {
                     withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                         sh 'terraform plan'
