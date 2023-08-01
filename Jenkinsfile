@@ -17,11 +17,16 @@ pipeline {
                     sh 'terraform plan'
                 }
             }
-        }
-        
-        post { 
-            always { 
-                cleanWs()
+        post {
+            always {
+                }
+            success{
+                }
+            failure {
+                }
+            cleanup{
+                    deleteDir()
+                }
             }
         }
     }
