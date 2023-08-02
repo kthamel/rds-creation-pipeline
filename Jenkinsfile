@@ -19,10 +19,16 @@ pipeline {
         }    
 
         stage('Terraform Apply') {
+            when {
+                branch 'main'
+            }
             steps {
                 withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId:'dba-user', secretKeyValueVariable: 'AWS_SECRET_ACCESS_KEY')]) {
-                    sh  'echo Hello World'
-                //    sh 'terraform apply --auto-approve'
+                    timeout(time: 1, unit: "MINUTES") {
+                        input message: 'Are you sure to apply these changes?', ok: 'Apply'
+                            sh  'echo Hello World'
+                            //    sh 'terraform apply --auto-approve'
+                    }
                 }
             }
         }
