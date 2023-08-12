@@ -24,7 +24,7 @@ pipeline {
                     timeout(time: 60, unit: "MINUTES") {
                         input message: 'Are you sure to apply these changes?', ok: 'Apply'
                             sh  'echo Hello World'
-                            sh 'hostname'
+                            sh 'ls -l /var/run/'
                             //sh 'psql –-version'
                             //    sh 'terraform apply --auto-approve'
                     }
