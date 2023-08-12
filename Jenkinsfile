@@ -1,5 +1,5 @@
 pipeline {
-    agent {label 'slave'}
+    agent {label 'slave-psql'}
 
     stages {
         stage('Terraform Initialization') {
@@ -24,6 +24,7 @@ pipeline {
                     timeout(time: 1, unit: "MINUTES") {
                         input message: 'Are you sure to apply these changes?', ok: 'Apply'
                             sh  'echo Hello World'
+                            sh 'psql –version'
                             //    sh 'terraform apply --auto-approve'
                     }
                 }
